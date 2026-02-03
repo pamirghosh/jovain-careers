@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
 
   </head>
   <body>
     <div>
 
-  
-    <h1>Jovan Careers</h1>
+    <div class="container">
+    <h1 class="text-center">Jovan Careers</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -49,20 +49,32 @@
     </div>
   </div>
     </nav>
+    
     <img src="{{ url_for('static', filename='banner.jpg') }}"
      class="img-fluid w-100"
      style="height: 450px; object-fit: cover;"
      alt="...">
-    <h3>About Jovan Careers</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et autem velit fuga exercitationem, officia blanditiis sapiente ullam, harum soluta quis tempora quia corporis, dignissimos incidunt impedit sit veniam ea facere!</p>
-    
-    <div class="card" style="width: 18rem;">
-      {% for job in jobs %}
-        {% include 'job-items.html' %}
-      {% endfor %}
-    
-
     </div>
+     <div class="container mt-4 mb-2 text-center">
+    <h3>About Jovan Careers</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Et autem velit fuga
+      exercitationem, officia blanditiis sapiente ullam, harum soluta quis tempora
+      quia corporis, dignissimos incidunt impedit sit veniam ea facere!
+    </p>
+  </div>
+    <div class="container">
+  <div class="row">
+    {% for job in jobs %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          {% include 'job-items.html' %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
