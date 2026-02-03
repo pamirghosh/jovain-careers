@@ -19,7 +19,7 @@ jobs=[
      }
 ]
 @app.route("/")
-def hello_world():
+def home():
     return render_template('index.html', jobs=jobs)
 if __name__=="__main__":
     app.run(debug=True)
