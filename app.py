@@ -29,10 +29,10 @@ db = SQLAlchemy(app)
 @app.route("/")
 def home():
     with app.app_context():
-    result = db.session.execute(text("SELECT * FROM jobs"))
-    rows = result.fetchall()
-    jobs = [dict(row._mapping) for row in rows]
-    print(jobs)
-    return render_template('index.html',jobs=jobs)
+        result = db.session.execute(text("SELECT * FROM jobs"))
+        rows = result.fetchall()
+        jobs = [dict(row._mapping) for row in rows]
+        print(jobs)
+        return render_template('index.html',jobs=jobs)
 if __name__=="__main__":
     app.run(debug=True)
