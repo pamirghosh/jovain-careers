@@ -8,7 +8,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
-DB_SSL_CA=os.getenv("DB_CA")
+DB_SSL_CA="/etc/secrets/ca.pem"
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
