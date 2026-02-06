@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 import os
@@ -8,7 +8,7 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 DB_NAME = os.getenv("DB_NAME")
-DB_SSL_CA="/etc/secrets/ca.pem"
+DB_SSL_CA="D:/jovan-careers/ca.pem"
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
@@ -32,7 +32,7 @@ def home():
         result = db.session.execute(text("SELECT * FROM jobs"))
         rows = result.fetchall()
         jobs = [dict(row._mapping) for row in rows]
-        print(jobs)
+        print(jsonify(jobs))
         return render_template('index.html',jobs=jobs)
 if __name__=="__main__":
     app.run(debug=True)
